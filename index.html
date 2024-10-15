@@ -1,74 +1,186 @@
-<?php session_start();  
-?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Home | CORE Commertial Constructions</title>
-    <link rel="stylesheet" href="../css/header_footer.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Cost Estimation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 50px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="text"], input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .form-container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .form-container p {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* Result styling */
+        .result {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        .result:hover {
+            transform: scale(1.05);
+        }
+
+        .result h3 {
+            color: #4CAF50;
+            font-size: 30px;
+            margin-bottom: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 600;
+        }
+
+        .result p {
+            font-size: 22px;
+            color: #333;
+            margin: 10px 0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+
+        .result strong {
+            font-size: 24px;
+            color: #2C6B2F;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
-    <?php
-        include('header.php'); //Linking header section
-    ?>
+    <h2>Construction Cost Estimation Form</h2>
 
-    <div style="height:2100px;">
+    <div class="form-container">
+        <form action="" method="POST">
+            <label for="project_name">Project Name:</label>
+            <input type="text" id="project_name" name="project_name" required><br>
 
-        <div id="hero-image">
-            <div class="wrapper">
-                <h2 class="h2"><strong>CORE</strong><br/>
-                Control Your Construction Business</h2>
-                <a href="#" class="button-1">See Pricing</a>
-            </div>
-        </div>
+            <label for="material_cost">Material Cost:</label>
+            <input type="number" step="0.01" id="material_cost" name="material_cost" required><br>
 
-        <div id="primary-content">
-            <div class="wrapper">
-                <article>
-                    <h3 class="h3">Featured Content</h3>
-                    <p class="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod leo a nibh dignissim tincidunt. Nam ultricies odio ac neque suscipit volutpat. Ut dictum adipiscing felis sed malesuada. Integer porta sem nec nibh hendrerit imperdiet. </p>
-                    <img src="../images/feaCon.png">
-                    <h5 class="h5"><a href="#">See More...</a></h5>
-                </article>
-            </div>
-        </div>
+            <label for="labor_cost">Labor Cost:</label>
+            <input type="number" step="0.01" id="labor_cost" name="labor_cost" required><br>
 
-        <div id="secondary-content">
-            <div class="wrapper">
-                <article style="background-image: url('../images/secCon1.jpg');">
-                    <div class="overlay">
-                        <h4 class="h4">Case Study</h4>
-                        <p class="p"><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod leo a nibh dignissim tincidunt nam.</small></p>
-                        <a href="#" class="more-link">View more</a>
-                    </div>
-                </article>
-                <article style="background-image: url('../images/secCon2.jpg');">
-                    <div class="overlay">
-                        <h4 class="h4">Case Study</h4>
-                        <p class="p"><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod leo a nibh dignissim tincidunt nam.</small></p>
-                        <a href="#" class="more-link">View more</a>
-                    </div>
-                </article><div class="clear"></div>
-            </div>
-        </div>
+            <label for="equipment_cost">Equipment Cost:</label>
+            <input type="number" step="0.01" id="equipment_cost" name="equipment_cost" required><br>
 
-        <div id="cta">
-            <div class="wrapper">
-                <h3 class="h3">Heard Enough?</h3>
-                <p class="p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod leo a nibh dignissim tincidunt. Nam ultricies odio ac neque suscipit volutpat. Ut dictum adipiscing felis sed malesuada. Integer porta sem nec nibh hendrerit imperdiet. </p>
-                <a href="demo.php" class="button-2">Try Demo</a>
-            </div>
-        </div>
+            <label for="misc_cost">Miscellaneous Costs:</label>
+            <input type="number" step="0.01" id="misc_cost" name="misc_cost"><br>
 
+            <label for="overhead_cost">Overhead Costs (Admin, Permits, etc.):</label>
+            <input type="number" step="0.01" id="overhead_cost" name="overhead_cost"><br>
+
+            <label for="contingency">Contingency (%):</label>
+            <input type="number" step="0.01" id="contingency" name="contingency" required><br><br>
+
+            <input type="submit" name="estimate_cost" value="Estimate Total Cost">
+        </form>
+
+        <?php
+        // Check if the form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Get form inputs
+            $project_name = $_POST['project_name'];
+            $material_cost = $_POST['material_cost'];
+            $labor_cost = $_POST['labor_cost'];
+            $equipment_cost = $_POST['equipment_cost'];
+            $misc_cost = isset($_POST['misc_cost']) ? $_POST['misc_cost'] : 0;
+            $overhead_cost = isset($_POST['overhead_cost']) ? $_POST['overhead_cost'] : 0;
+            $contingency = $_POST['contingency'];
+
+            // Calculate total cost before contingency
+            $total_cost_before_contingency = $material_cost + $labor_cost + $equipment_cost + $misc_cost + $overhead_cost;
+
+            // Calculate contingency amount
+            $contingency_amount = ($total_cost_before_contingency * $contingency) / 100;
+
+            // Calculate final total cost including contingency
+            $total_cost = $total_cost_before_contingency + $contingency_amount;
+
+            // Display result using echo
+            echo "<div class='result'>";
+            echo "<h3>Project '$project_name' Estimation:</h3>";
+            echo "<p>Total estimated cost (including contingency): <strong>$" . number_format($total_cost, 2) . "</strong></p>";
+            echo "</div>";
+        }
+        ?>
     </div>
-    <?php
-        include('footer.php'); //linking to footer section
-    ?>
-
-
-
-<!-- 
-    Student name: Thathsara S.M.K. 
-    Student ID: IT21219566 
-    Module: IWT (1st Yr: 2nd Sem: Final Assignment: 2022)
- -->
+</body>
+</html>
